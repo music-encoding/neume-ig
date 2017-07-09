@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  © 2015 by the Music Encoding Initiative (MEI).
+  Licensed under the Educational Community License, Version 2.0 (the "License"); you may
+  not use this file except in compliance with the License. You may obtain a copy of the License
+  at http://opensource.org/licenses/ECL-2.0.
+  
+  Unless required by applicable law or agreed to in writing, software distributed under the
+  License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+  OF ANY KIND, either express or implied. See the License for the specific language
+  governing permissions and limitations under the License.
+  
+  This is a derivative work based on earlier versions of the schema © 2001-2006 Perry Roland
+  and the Rector and Visitors of the University of Virginia; licensed under the Educational
+  Community License version 1.0.
+  
+  CONTACT: info@music-encoding.org
+-->
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Music Encoding Initiative Guidelines: <title type="sub">Neumes
+          Customization</title></title>
+        <respStmt>
+          <resp>Authored by</resp>
+          <name xml:id="PR">Perry Roland</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p/>
+      </publicationStmt>
+      <sourceDesc>
+        <p/>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <divGen type="toc"/>
+    </front>
+    <body>
+      <!-- Limit the set of possible start elements -->
+      <schemaSpec ident="mei" ns="http://www.music-encoding.org/ns/mei" prefix="mei_"
+        start="mei meiHead meiCorpus music">
+
+        <!-- Declare MEI and XLink namespaces for use in Schematron -->
+        <constraintSpec ident="set_ns" scheme="isoschematron" mode="add">
+          <constraint>
+            <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="mei"
+              uri="http://www.music-encoding.org/ns/mei"/>
+            <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron" prefix="xlink"
+              uri="http://www.w3.org/1999/xlink"/>
+          </constraint>
+        </constraintSpec>
+
+        <!-- Deactivate the CMN, cmnOrnaments, fingering and mensural modules -->
+        <moduleRef key="MEI"/>
+        <moduleRef key="MEI.analytical"/>
+        <!--<moduleRef key="MEI.cmn"/>-->
+        <!--<moduleRef key="MEI.cmnOrnaments"/>-->
+        <moduleRef key="MEI.corpus"/>
+        <moduleRef key="MEI.critapp"/>
+        <moduleRef key="MEI.drama"/>
+        <moduleRef key="MEI.edittrans"/>
+        <moduleRef key="MEI.externalsymbols"/>
+        <moduleRef key="MEI.facsimile"/>
+        <moduleRef key="MEI.figtable"/>
+        <!--<moduleRef key="MEI.fingering"/>-->
+        <moduleRef key="MEI.frbr"/>
+        <moduleRef key="MEI.gestural"/>
+        <moduleRef key="MEI.harmony"/>
+        <moduleRef key="MEI.header"/>
+        <moduleRef key="MEI.lyrics"/>
+        <!--<moduleRef key="MEI.mensural"/>-->
+        <moduleRef key="MEI.midi"/>
+        <moduleRef key="MEI.namesdates"/>
+        <moduleRef key="MEI.neumes"/>
+        <moduleRef key="MEI.performance"/>
+        <moduleRef key="MEI.ptrref"/>
+        <moduleRef key="MEI.shared"/>
+        <moduleRef key="MEI.tablature"/>
+        <moduleRef key="MEI.text"/>
+        <moduleRef key="MEI.usersymbols"/>
+        <moduleRef key="MEI.visual"/>
+
+        <!-- Include SVG -->
+        <moduleRef url="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/svg11.rng"
+          prefix="svg_">
+          <content>
+            <rng:define name="mei_model.graphicLike" combine="choice">
+              <rng:ref name="svg_svg"/>
+            </rng:define>
+          </content>
+        </moduleRef>
+
+        <!-- Remove dur attributes -->
+        <classSpec ident="att.duration.musical" module="MEI.shared" type="atts" mode="delete"/>
+        <classSpec ident="att.duration.additive" module="MEI.shared" type="atts" mode="delete"/>
+        <classSpec ident="att.augmentdots" module="MEI.shared" type="atts" mode="delete"/>
+
+        <!-- Disable CMN-specific model classes in the shared module -->
+        <classSpec ident="model.sectionPart.cmn" module="MEI.shared" type="model" mode="delete"/>
+        <classSpec ident="model.layerPart.cmn" module="MEI.shared" type="model" mode="delete"/>
+
+        <!-- Add @accid and @pclass to att.nc.anl -->
+        <classSpec ident="att.nc.anl" module="MEI.analytical" type="atts" mode="replace">
+          <desc>Analytical domain attributes.</desc>
+          <classes>
+            <memberOf key="att.accidental"/>
+            <memberOf key="att.harmonicFunction"/>
+            <memberOf key="att.intervalMelodic"/>
+            <memberOf key="att.melodicFunction"/>
+            <memberOf key="att.pitchClass"/>
+            <memberOf key="att.solfa"/>
+          </classes>
+        </classSpec>
+
+        <!-- Make <nc> member of att.pitched -->
+        <classSpec ident="att.nc.log" module="MEI.neumes" type="atts" mode="replace">
+          <desc>Logical domain attributes.</desc>
+          <classes>
+            <memberOf key="att.pitched"/>
+          </classes>
+        </classSpec>
+
+        <!-- Attributes in att.nc.vis need documentation/description -->
+        <classSpec ident="att.nc.vis" module="MEI.visual" type="atts" mode="replace">
+          <desc>Visual domain attributes.</desc>
+          <classes>
+            <memberOf key="att.altSym"/>
+            <memberOf key="att.color"/>
+            <memberOf key="att.extSym"/>
+            <memberOf key="att.staffLoc"/>
+            <memberOf key="att.typography"/>
+          </classes>
+          <attList>
+            <attDef ident="angled" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="con" usage="opt">
+              <desc>Connection to the previous component within the same neume.</desc>
+              <constraintSpec ident="nc_connection" scheme="isoschematron">
+                <constraint>
+                  <sch:rule context="mei:nc[@con]">
+                    <sch:let name="ncPosition" value="count(preceding-sibling::mei:nc) + 1"/>
+                    <sch:assert test="not($ncPosition = 1)">The @con attribute is not allowed on the
+                      first component of a neume.</sch:assert>
+                  </sch:rule>
+                </constraint>
+              </constraintSpec>
+              <valList type="closed">
+                <valItem ident="g">
+                  <desc>Gapped; not connected.</desc>
+                </valItem>
+                <valItem ident="l">
+                  <desc>Looped.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="curved" usage="opt">
+              <desc/>
+              <valList type="closed">
+                <valItem ident="a">
+                  <desc>Anti-clockwise curvature.</desc>
+                </valItem>
+                <valItem ident="c">
+                  <desc>Clockwise curvature.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="diagonalright" usage="opt">
+              <desc/>
+              <valList type="closed">
+                <valItem ident="u">
+                  <desc>Up.</desc>
+                </valItem>
+                <valItem ident="d">
+                  <desc>Down.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="episema" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="extended" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="flat" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="jagged" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="liquescent" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="long" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="oriscus" usage="opt">
+              <desc/>
+              <valList type="closed">
+                <valItem ident="c">
+                  <desc>Curved.</desc>
+                </valItem>
+                <valItem ident="f">
+                  <desc>Flat.</desc>
+                </valItem>
+                <valItem ident="j">
+                  <desc>Jagged.</desc>
+                </valItem>
+                <valItem ident="unknown">
+                  <desc>Unknown or unspecified.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="quilisma" usage="opt">
+              <desc/>
+              <valList type="closed">
+                <valItem ident="2">
+                  <desc>2 curves.</desc>
+                </valItem>
+                <valItem ident="3">
+                  <desc>3 curves.</desc>
+                </valItem>
+                <valItem ident="unknown">
+                  <desc>Unknown or unspecified.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="strophicus" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="wavy" usage="opt">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+          </attList>
+        </classSpec>
+
+      </schemaSpec>
+    </body>
+  </text>
+</TEI>
