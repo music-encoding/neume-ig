@@ -106,6 +106,35 @@
         <classSpec ident="model.sectionPart.cmn" module="MEI.shared" type="model" mode="delete"/>
         <classSpec ident="model.layerPart.cmn" module="MEI.shared" type="model" mode="delete"/>
 
+        <!-- Attributes in att.neume.vis need documentation/description -->
+        <classSpec ident="att.neume.vis" module="MEI.visual" type="atts" mode="replace">
+          <desc>Visual domain attributes.</desc>
+          <classes>
+            <memberOf key="att.altSym"/>
+            <memberOf key="att.color"/>
+            <memberOf key="att.extSym"/>
+            <memberOf key="att.staffLoc"/>
+            <memberOf key="att.typography"/>
+            <memberOf key="att.visibility"/>
+            <memberOf key="att.visualOffset.ho"/>
+            <memberOf key="att.xy"/>
+          </classes>
+          <attList>
+            <attDef ident="hispanicloop">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+            <attDef ident="significativeletters">
+              <desc/>
+              <datatype>
+                <rng:ref name="data.BOOLEAN"/>
+              </datatype>
+            </attDef>
+          </attList>
+        </classSpec>
+
         <!-- Attributes in att.nc.vis need documentation/description -->
         <classSpec ident="att.nc.vis" module="MEI.visual" type="atts" mode="replace">
           <desc>Visual domain attributes.</desc>
