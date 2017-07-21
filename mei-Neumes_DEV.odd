@@ -134,6 +134,31 @@
             </attDef>
           </attList>
         </classSpec>
+        <elementSpec ident="neume" module="MEI.neumes" mode="replace">
+          <desc>Sign representing one or more musical pitches.</desc>
+          <classes>
+            <memberOf key="att.common"/>
+            <memberOf key="att.facsimile"/>
+            <memberOf key="att.neume.log"/>
+            <memberOf key="att.neume.vis"/>
+            <memberOf key="att.neume.ges"/>
+            <memberOf key="att.neume.anl"/>
+            <memberOf key="model.eventLike.neumes"/>
+          </classes>
+          <content>
+            <rng:zeroOrMore>
+              <rng:choice>
+                <rng:ref name="nc"/>
+                <rng:ref name="macro.neumeModifierLike"/>
+                <rng:ref name="model.appLike"/>
+                <rng:ref name="model.editLike"/>
+                <rng:ref name="model.transcriptionLike"/>
+                <rng:ref name="model.verseLike"/>
+              </rng:choice>
+            </rng:zeroOrMore>
+          </content>
+        </elementSpec>
+
 
         <!-- Attributes in att.nc.vis need documentation/description -->
         <classSpec ident="att.nc.vis" module="MEI.visual" type="atts" mode="replace">
@@ -270,6 +295,22 @@
             </attDef>
           </attList>
         </classSpec>
+        <elementSpec ident="nc" module="MEI.neumes" mode="replace">
+          <desc>Sign representing a single pitched event, although the exact pitch may not be
+            known.</desc>
+          <classes>
+            <memberOf key="att.common"/>
+            <memberOf key="att.facsimile"/>
+            <memberOf key="att.nc.log"/>
+            <memberOf key="att.nc.vis"/>
+            <memberOf key="att.nc.ges"/>
+            <memberOf key="att.nc.anl"/>
+          </classes>
+          <content>
+            <rng:empty/>
+          </content>
+        </elementSpec>
+
 
       </schemaSpec>
     </body>
