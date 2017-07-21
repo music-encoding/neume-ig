@@ -118,7 +118,7 @@
           </classes>
           <attList>
             <attDef ident="angled" usage="opt">
-              <desc/>
+              <desc>The shape of nc is angled or has a bend.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
@@ -144,7 +144,7 @@
               </valList>
             </attDef>
             <attDef ident="curved" usage="opt">
-              <desc/>
+              <desc>The shape of nc is curved, often a half circle.</desc>
               <valList type="closed">
                 <valItem ident="a">
                   <desc>Anti-clockwise curvature.</desc>
@@ -155,54 +155,55 @@
               </valList>
             </attDef>
             <attDef ident="diagonalright" usage="opt">
-              <desc/>
+              <desc>The shape of nc is a diagonal line either going up or down.</desc>
               <valList type="closed">
                 <valItem ident="u">
-                  <desc>Up.</desc>
+                  <desc>A diagonal line right up, as in Virga.</desc>
                 </valItem>
                 <valItem ident="d">
-                  <desc>Down.</desc>
+                  <desc>A diagonal line right down.</desc>
                 </valItem>
               </valList>
             </attDef>
             <attDef ident="episema" usage="opt">
-              <desc/>
+              <desc>A line segment attached.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="extended" usage="opt">
-              <desc/>
+              <desc>The shape of nc is longer than normal.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="flat" usage="opt">
-              <desc/>
+              <desc>The shape of nc is a horizontal line segment.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="jagged" usage="opt">
-              <desc/>
+              <desc>The shape of nc is jagged.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="liquescent" usage="opt">
-              <desc/>
+              <desc>The nc is a liquescent.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="long" usage="opt">
+ <!-- This attribute @long can be removed. This is same as @extended -->
               <desc/>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="oriscus" usage="opt">
-              <desc/>
+              <desc>The nc is a oriscus.</desc>
               <valList type="closed">
                 <valItem ident="c">
                   <desc>Curved.</desc>
@@ -219,7 +220,7 @@
               </valList>
             </attDef>
             <attDef ident="quilisma" usage="opt">
-              <desc/>
+              <desc>The nc is a quilisma.</desc>
               <valList type="closed">
                 <valItem ident="2">
                   <desc>2 curves.</desc>
@@ -233,13 +234,13 @@
               </valList>
             </attDef>
             <attDef ident="strophicus" usage="opt">
-              <desc/>
+              <desc>The nc is a strophicus.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="wavy" usage="opt">
-              <desc/>
+              <desc>The shape of nc is wavy.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
