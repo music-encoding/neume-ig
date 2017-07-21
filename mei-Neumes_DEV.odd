@@ -118,7 +118,7 @@
           </classes>
           <attList>
             <attDef ident="angled" usage="opt">
-              <desc>The shape of nc is angled or has a bend.</desc>
+              <desc>The shape of the neume component is angled or has a bend.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
@@ -144,7 +144,7 @@
               </valList>
             </attDef>
             <attDef ident="curved" usage="opt">
-              <desc>The shape of nc is curved, often a half circle.</desc>
+              <desc>The shape of the neume component is curved, often a half circle.</desc>
               <valList type="closed">
                 <valItem ident="a">
                   <desc>Anti-clockwise curvature.</desc>
@@ -155,7 +155,8 @@
               </valList>
             </attDef>
             <attDef ident="diagonalright" usage="opt">
-              <desc>The shape of nc is a diagonal line either going up or down.</desc>
+              <desc>The shape of the neume component is a diagonal line either going up or
+                down.</desc>
               <valList type="closed">
                 <valItem ident="u">
                   <desc>A diagonal line right up, as in Virga.</desc>
@@ -172,38 +173,38 @@
               </datatype>
             </attDef>
             <attDef ident="extended" usage="opt">
-              <desc>The shape of nc is longer than normal.</desc>
+              <desc>The shape of the neume component is longer than normal.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="flat" usage="opt">
-              <desc>The shape of nc is a horizontal line segment.</desc>
+              <desc>The shape of the neume component is a horizontal line segment.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="jagged" usage="opt">
-              <desc>The shape of nc is jagged.</desc>
+              <desc>The shape of the neume component is jagged.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="liquescent" usage="opt">
-              <desc>The nc is a liquescent.</desc>
+              <desc>The neume component is a liquescent.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="long" usage="opt">
- <!-- This attribute @long can be removed. This is same as @extended -->
+              <!-- This attribute @long can be removed. This is same as @extended -->
               <desc/>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
             <attDef ident="oriscus" usage="opt">
-              <desc>The nc is a oriscus.</desc>
+              <desc>The neume component is an oriscus.</desc>
               <valList type="closed">
                 <valItem ident="c">
                   <desc>Curved.</desc>
@@ -220,7 +221,7 @@
               </valList>
             </attDef>
             <attDef ident="quilisma" usage="opt">
-              <desc>The nc is a quilisma.</desc>
+              <desc>The neume component is a quilisma.</desc>
               <valList type="closed">
                 <valItem ident="2">
                   <desc>2 curves.</desc>
@@ -234,7 +235,7 @@
               </valList>
             </attDef>
             <attDef ident="strophicus" usage="opt">
-              <desc>The nc is a strophicus.</desc>
+              <desc>The neueme component is a strophicus.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
