@@ -196,13 +196,6 @@
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
             </attDef>
-            <attDef ident="long" usage="opt">
-              <!-- This attribute @long can be removed. This is same as @extended -->
-              <desc/>
-              <datatype>
-                <rng:ref name="data.BOOLEAN"/>
-              </datatype>
-            </attDef>
             <attDef ident="oriscus" usage="opt">
               <desc>The neume component is an oriscus.</desc>
               <valList type="closed">
