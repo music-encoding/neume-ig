@@ -206,7 +206,7 @@
             <memberOf key="att.color"/>
             <memberOf key="att.extSym"/>
             <memberOf key="att.staffLoc"/>
-            <memberOf key="att.typography"/> 
+            <memberOf key="att.typography"/>
             <memberOf key="att.visibility"/>
             <memberOf key="att.visualOffset.ho"/>
             <memberOf key="att.xy"/>
@@ -329,7 +329,7 @@
               </datatype>
             </attDef>
             <attDef ident="wavy" usage="opt">
-              <desc>The shape of nc is wavy.</desc>
+              <desc>The shape of the neume component is wavy.</desc>
               <datatype>
                 <rng:ref name="data.BOOLEAN"/>
               </datatype>
